@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.github.melodiccougar7.immersivefixes.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "immersivefixes.refmap.json",
+  "mixins": [
+    "MixinFluidProtection"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
