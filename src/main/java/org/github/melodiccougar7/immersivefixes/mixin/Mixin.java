@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 
-import blusunrize.immersiveengineering.common.register.IEBlocks; // <-- the class you're modifying
+import blusunrize.immersiveengineering.common.register.IEBlocks; 
 
 import org.spongepowered.asm.mixin.Mutable;
 import org.spongepowered.asm.mixin.Shadow;
@@ -45,7 +45,7 @@ class MixinFluidProtection {
 
       // replace the static value
 
-        METAL_PROPERTIES_NO_OCCLUSION = () -> METAL_PROPERTIES_NO_OVERLAY.get()
+        METAL_PROPERTIES_NO_OCCLUSION = () -> METAL_PROPERTIES_NO_OVERLAY.get() // directly referenced from IE's code under Blu's License of Common Sense. See https://github.com/BluSunrize/ImmersiveEngineering/issues/5906 and the exact source of the code, https://github.com/BluSunrize/ImmersiveEngineering/commit/b6fb636b616bf0c1018c5c2c0095c18bd190161d
                 .noOcclusion()
                 .forceSolidOn();
 
