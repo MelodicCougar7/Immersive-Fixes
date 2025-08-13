@@ -5,11 +5,13 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "immersivefixes.refmap.json",
   "mixins": [
+    "ArcFurnaceSecondariesChanceMixin",
     "MixinFluidProtection"
   ],
   "client": [
   ],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "verbose": true
 }
