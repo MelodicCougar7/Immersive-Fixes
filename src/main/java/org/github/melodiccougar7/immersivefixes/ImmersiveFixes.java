@@ -24,7 +24,7 @@ public class ImmersiveFixes {
     // Define mod id in a common place for everything to reference
     public static final String MODID = "immersivefixes";
     // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
+    // private static final Logger LOGGER = LogUtils.getLogger();
 
     public ImmersiveFixes() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -39,8 +39,6 @@ public class ImmersiveFixes {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        //
-        LOGGER.info("ImmersiveFixes initialized."); //this line called in method by the block immediately above
 
     }
 
@@ -48,7 +46,6 @@ public class ImmersiveFixes {
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
         // Do something when the server starts
-        LOGGER.info("HELLO from server starting");
     }
 
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
