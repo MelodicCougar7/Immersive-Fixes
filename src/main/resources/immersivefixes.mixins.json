@@ -2,6 +2,7 @@
   "required": true,
   "minVersion": "0.8",
   "package": "org.github.melodiccougar7.immersivefixes.mixin",
+  "plugin": "org.github.melodiccougar7.immersivefixes.ImmersiveFixesMixinPlugin",
   "compatibilityLevel": "JAVA_17",
   "refmap": "immersivefixes.refmap.json",
   "mixins": [
@@ -15,5 +16,7 @@
   "injectors": {
     "defaultRequire": 1
   },
-  "verbose": true
+  "verbose": true,
+  "priority": 1100
 }
+
