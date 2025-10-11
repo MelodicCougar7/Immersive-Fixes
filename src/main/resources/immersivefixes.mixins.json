@@ -6,7 +6,9 @@
   "refmap": "immersivefixes.refmap.json",
   "mixins": [
     "ArcFurnaceSecondariesChanceMixin",
-    "MixinFluidProtection"
+    "CokeOvenLogicFix",
+    "MixinFluidProtection",
+    "CokeOvenStateAccessor"
   ],
   "client": [
   ],
