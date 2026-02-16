@@ -9,7 +9,9 @@
     "ArcFurnaceSecondariesChanceMixin",
     "CokeOvenLogicFix",
     "MixinFluidProtection",
-    "CokeOvenStateAccessor"
+    "CokeOvenStateAccessor",
+    "DieselGenAccessor",
+    "DieselGenFixes"
   ],
   "client": [
   ],

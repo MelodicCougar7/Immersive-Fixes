@@ -15,6 +15,7 @@ plugins {
     id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'
 }
 
+apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.spongepowered.mixin'
 
 group = mod_group_id
@@ -178,7 +179,7 @@ dependencies {
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}")
-    // runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
+
 
     implementation fg.deobf("curse.maven:immersive-engineering-231951:6206989")
     // Added because I'm sick of dealing with mixin nonsense
