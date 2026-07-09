@@ -11,15 +11,10 @@ import blusunrize.immersiveengineering.common.blocks.multiblocks.logic.DieselGen
 import blusunrize.immersiveengineering.common.config.IEServerConfig;
 import blusunrize.immersiveengineering.common.util.EnergyHelper;
 import net.minecraftforge.energy.IEnergyStorage;
-import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
 import java.util.Objects;
@@ -34,7 +29,11 @@ https://github.com/BluSunrize/ImmersiveEngineering/blob/1.21.1/src/main/java/blu
 
 @Mixin(DieselGeneratorLogic.class)
 public abstract class DieselGenFixes implements IMultiblockLogic<State>, IServerTickableComponent<State>, IClientTickableComponent<State> {
-    @Override
+    /**
+     * @author MelodicCougar7
+     * @reason Simple solution to complex list of problems
+     */
+    @Overwrite(remap = false)
     public void tickServer(IMultiblockContext<State> context)
     {
         final State state = context.getState();

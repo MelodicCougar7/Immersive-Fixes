@@ -8,12 +8,19 @@
   "mixins": [
     "ArcFurnaceSecondariesChanceMixin",
     "CokeOvenLogicFix",
-    "MixinFluidProtection",
     "CokeOvenStateAccessor",
     "DieselGenAccessor",
-    "DieselGenFixes"
+    "DieselGenFixes",
+    "MixinFluidProtection"
   ],
   "client": [
+    "gui.CircuitTableSceenMixin",
+    "gui.GuiButtonLogicCircuitRegisterMixins",
+    "gui.ScreenInvoker",
+    "ClientEventHandlerMixin",
+    "IEMuffledSoundMixin",
+    "SoundEngineMixin"
+
   ],
   "injectors": {
     "defaultRequire": 1
