@@ -6,6 +6,7 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "immersivefixes.refmap.json",
   "mixins": [
+    "client.render.PolygonSplitMixin",
     "common.ArcFurnaceSecondariesChanceMixin",
     "common.CokeOvenLogicFix",
     "common.CokeOvenStateAccessor",
@@ -14,13 +15,16 @@
     "common.MixinFluidProtection"
   ],
   "client": [
+    "client.ClientEventHandlerMixin",
+    "client.IEMuffledSoundMixin",
+    "client.SoundEngineMixin",
     "client.gui.CircuitTableSceenMixin",
     "client.gui.GuiButtonLogicCircuitRegisterMixins",
     "client.gui.ScreenInvoker",
-    "client.ClientEventHandlerMixin",
-    "client.IEMuffledSoundMixin",
-    "client.SoundEngineMixin"
-
+    "client.render.AbstractSplitModelMixin",
+    "client.render.BakedBasicSplitModelMixin",
+    "client.render.BakedDynamicSplitModelMixin",
+    "client.render.PolygonUtilsMixin"
   ],
   "injectors": {
     "defaultRequire": 1
