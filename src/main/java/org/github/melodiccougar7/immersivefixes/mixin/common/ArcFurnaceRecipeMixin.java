@@ -21,7 +21,7 @@ public abstract class ArcFurnaceRecipeMixin {
             )
     )
     private float immersivefixes$invertSecondaryChance(float originalChance) {
-        IFLib.logMixinActive("ArcFurnaceSecondariesChanceMixin");
+        IFLib.logMixinActive("ArcFurnaceRecipeMixin");
         if (LoadingModList.get().getModFileById("compressedengineering") == null)
             return 1.0F - originalChance;
 

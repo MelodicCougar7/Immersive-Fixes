@@ -32,6 +32,6 @@ public class IEBlocksMixin {
         METAL_PROPERTIES_NO_OCCLUSION = () -> METAL_PROPERTIES_NO_OVERLAY.get()
                 .noOcclusion()
                 .forceSolidOn();
-        IFLib.IF_LOGGER.info("Modified METAL_PROPERTIES_NO_OCCLUSION has been set.");
+        IFLib.logMixinActive("IEBlocksMixin");
     }
 }

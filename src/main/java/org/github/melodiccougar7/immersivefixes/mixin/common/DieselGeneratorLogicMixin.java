@@ -38,7 +38,7 @@ public abstract class DieselGeneratorLogicMixin implements IMultiblockLogic<Stat
     @Overwrite(remap = false)
     public void tickServer(IMultiblockContext<State> context)
     {
-        IFLib.logMixinActive("DieselGenFixes");
+        IFLib.logMixinActive("DieselGeneratorLogicMixin");
         final State state = context.getState();
         DieselGeneratorLogicAccessor accessor = (DieselGeneratorLogicAccessor) state;
         boolean active = context.getState().isActive();
