@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 // Accessor to help resolve #6305: Coke Oven Exploit
 
-@Mixin(CokeOvenLogic.State.class)
+@Mixin(value = CokeOvenLogic.State.class, remap = false)
 public interface CokeOvenLogicAccessor {
     @Accessor("process")
     int getProcess();

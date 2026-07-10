@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 import java.util.List;
 import java.util.function.BiFunction;
 
-@Mixin(DieselGeneratorLogic.State.class)
+@Mixin(value = DieselGeneratorLogic.State.class, remap = false)
 public interface DieselGeneratorLogicAccessor {
     @Accessor("energyOutputs")
     List<CapabilityReference<IEnergyStorage>> getEnergyOutputs();

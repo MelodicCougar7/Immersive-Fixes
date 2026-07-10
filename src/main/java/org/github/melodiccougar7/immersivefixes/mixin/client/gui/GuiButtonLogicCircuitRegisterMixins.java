@@ -20,7 +20,8 @@ public abstract class GuiButtonLogicCircuitRegisterMixins {
             method = "charTyped(CI)Z",
             at = @At(
                     value = "INVOKE",
-                    target = "Lorg/apache/commons/lang3/mutable/MutableInt;setValue(I)V"
+                    target = "Lorg/apache/commons/lang3/mutable/MutableInt;setValue(I)V",
+                    remap = false
             )
     )
     private int immersivefixes$compensateOnPressIncrement(int original) {
