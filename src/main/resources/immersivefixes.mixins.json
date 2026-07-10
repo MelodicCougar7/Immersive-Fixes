@@ -7,12 +7,12 @@
   "refmap": "immersivefixes.refmap.json",
   "mixins": [
     "client.render.PolygonSplitMixin",
-    "common.ArcFurnaceSecondariesChanceMixin",
-    "common.CokeOvenLogicFix",
-    "common.CokeOvenStateAccessor",
-    "common.DieselGenAccessor",
-    "common.DieselGenFixes",
-    "common.MixinFluidProtection"
+    "common.ArcFurnaceRecipeMixin",
+    "common.CokeOvenLogicMixin",
+    "common.helper.CokeOvenLogicAccessor",
+    "common.helper.DieselGeneratorLogicAccessor",
+    "common.DieselGeneratorLogicMixin",
+    "common.IEBlocksMixin"
   ],
   "client": [
     "client.ClientEventHandlerMixin",
@@ -20,7 +20,7 @@
     "client.SoundEngineMixin",
     "client.gui.CircuitTableSceenMixin",
     "client.gui.GuiButtonLogicCircuitRegisterMixins",
-    "client.gui.ScreenInvoker",
+    "client.gui.helper.ScreenInvoker",
     "client.render.AbstractSplitModelMixin",
     "client.render.BakedBasicSplitModelMixin",
     "client.render.BakedDynamicSplitModelMixin",

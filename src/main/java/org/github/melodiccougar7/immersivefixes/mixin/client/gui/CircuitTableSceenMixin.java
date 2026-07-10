@@ -2,6 +2,8 @@ package org.github.melodiccougar7.immersivefixes.mixin.client.gui;
 
 import blusunrize.immersiveengineering.client.gui.CircuitTableScreen;
 import blusunrize.immersiveengineering.client.gui.elements.GuiButtonLogicCircuitRegister;
+import org.github.melodiccougar7.immersivefixes.lib.IFLib;
+import org.github.melodiccougar7.immersivefixes.mixin.client.gui.helper.ScreenInvoker;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -26,6 +28,7 @@ public abstract class CircuitTableSceenMixin {
             )
     )
     private void beforeInputButtonsClear(CallbackInfo ci) {
+        IFLib.logMixinActive("CircuitTableSceenMixin");
         ScreenInvoker invoker = (ScreenInvoker) this;
         this.inputButtons.forEach(invoker::invokeRemoveWidget);
     }

@@ -1,4 +1,4 @@
-package org.github.melodiccougar7.immersivefixes.mixin.common;
+package org.github.melodiccougar7.immersivefixes.mixin.common.helper;
 
 import blusunrize.immersiveengineering.common.blocks.multiblocks.logic.CokeOvenLogic;
 import org.spongepowered.asm.mixin.Mixin;
@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 // Accessor to help resolve #6305: Coke Oven Exploit
 
 @Mixin(CokeOvenLogic.State.class)
-public interface CokeOvenStateAccessor {
+public interface CokeOvenLogicAccessor {
     @Accessor("process")
     int getProcess();
 

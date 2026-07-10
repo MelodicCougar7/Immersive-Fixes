@@ -1,4 +1,4 @@
-package org.github.melodiccougar7.immersivefixes.mixin.common;
+package org.github.melodiccougar7.immersivefixes.mixin.common.helper;
 
 import blusunrize.immersiveengineering.api.energy.GeneratorFuel;
 import blusunrize.immersiveengineering.api.utils.CapabilityReference;
@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.function.BiFunction;
 
 @Mixin(DieselGeneratorLogic.State.class)
-public interface DieselGenAccessor {
+public interface DieselGeneratorLogicAccessor {
     @Accessor("energyOutputs")
     List<CapabilityReference<IEnergyStorage>> getEnergyOutputs();
 

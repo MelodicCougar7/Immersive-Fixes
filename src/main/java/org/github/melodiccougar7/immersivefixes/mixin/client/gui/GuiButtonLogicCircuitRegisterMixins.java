@@ -2,6 +2,7 @@ package org.github.melodiccougar7.immersivefixes.mixin.client.gui;
 
 import blusunrize.immersiveengineering.client.gui.elements.GuiButtonLogicCircuitRegister;
 import blusunrize.immersiveengineering.client.gui.elements.GuiButtonState;
+import org.github.melodiccougar7.immersivefixes.lib.IFLib;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
@@ -23,6 +24,7 @@ public abstract class GuiButtonLogicCircuitRegisterMixins {
             )
     )
     private int immersivefixes$compensateOnPressIncrement(int original) {
+        IFLib.logMixinActive("GuiButtonLogicCircuitRegisterMixins");
         GuiButtonState<?> self = (GuiButtonState<?>) (Object) this;
         return Math.floorMod(original - 1, self.states.length);
     }

@@ -6,15 +6,12 @@ import com.mojang.blaze3d.vertex.VertexFormatElement;
 import malte0811.modelsplitter.model.Polygon;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.resources.model.ModelState;
+import org.github.melodiccougar7.immersivefixes.lib.IFLib;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-/**
- * @author tgstyle
- */
 
 @Mixin(value = PolygonUtils.class, remap = false)
 public class PolygonUtilsMixin {
@@ -34,6 +31,7 @@ public class PolygonUtilsMixin {
 
     @Inject(method = "toBakedQuad(Lmalte0811/modelsplitter/model/Polygon;Lnet/minecraft/client/resources/model/ModelState;)Lnet/minecraft/client/renderer/block/model/BakedQuad;", at = @At("RETURN"), cancellable = true)
     private static void immersiveFixes$bakeSplitLighting(Polygon<PolygonUtils.ExtraQuadData> poly, ModelState transform, CallbackInfoReturnable<BakedQuad> cir) {
+        IFLib.logMixinActive("PolygonUtilsMixin");
         BakedQuad in = cir.getReturnValue();
         int[] verts = in.getVertices();
         for (int v = 0; v < 4; ++v) {

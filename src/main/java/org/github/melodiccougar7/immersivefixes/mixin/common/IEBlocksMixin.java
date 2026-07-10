@@ -13,8 +13,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.function.Supplier;
 
+/*
+    Mixin to fix fluids destroying multiblocks.
+ */
+
 @Mixin(value = IEBlocks.class, remap = false)
-public class MixinFluidProtection {
+public class IEBlocksMixin {
     @Shadow @Final @Mutable
     public static Supplier<BlockBehaviour.Properties> METAL_PROPERTIES_NO_OCCLUSION;
 

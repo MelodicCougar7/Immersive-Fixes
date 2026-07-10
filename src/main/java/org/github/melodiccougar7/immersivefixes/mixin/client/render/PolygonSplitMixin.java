@@ -8,6 +8,7 @@ import malte0811.modelsplitter.util.CyclicListWrapper;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
+import org.github.melodiccougar7.immersivefixes.lib.IFLib;
 import org.spongepowered.asm.mixin.Unique;
 
 import java.util.ArrayList;
@@ -33,6 +34,7 @@ public abstract class PolygonSplitMixin<Texture> {
      */
     @Overwrite
     public Map<EpsilonMath.Sign, Polygon<Texture>> splitAlong(Plane p) {
+        IFLib.logMixinActive("PolygonSplitMixin");
         List<Vertex> points = getPoints();
         List<EpsilonMath.Sign> signs = new ArrayList<>(points.size());
         for (Vertex point : points) {
