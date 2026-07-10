@@ -19,7 +19,7 @@ public abstract class CokeOvenLogicFix {
         ItemStack input = state.getInventory().getStackInSlot(CokeOvenLogic.INPUT_SLOT);
 
         if (input.isEmpty()) {
-            CokeOvenStateAccessor accessor = (CokeOvenStateAccessor) (Object) state;
+            CokeOvenStateAccessor accessor = (CokeOvenStateAccessor) state;
             accessor.setProcess(0);
             accessor.setProcessMax(0);
             context.markMasterDirty();

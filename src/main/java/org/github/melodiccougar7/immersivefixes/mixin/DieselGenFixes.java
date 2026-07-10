@@ -37,7 +37,7 @@ public abstract class DieselGenFixes implements IMultiblockLogic<State>, IServer
     public void tickServer(IMultiblockContext<State> context)
     {
         final State state = context.getState();
-        DieselGenAccessor accessor = (DieselGenAccessor) (Object) state;
+        DieselGenAccessor accessor = (DieselGenAccessor) state;
         boolean active = context.getState().isActive();
         if(state.rsState.isEnabled(context)&&!state.tank.getFluid().isEmpty())
         {

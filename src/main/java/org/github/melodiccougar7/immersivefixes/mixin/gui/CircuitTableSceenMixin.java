@@ -26,7 +26,7 @@ public abstract class CircuitTableSceenMixin {
             )
     )
     private void beforeInputButtonsClear(CallbackInfo ci) {
-        ScreenInvoker invoker = (ScreenInvoker)(Object)this;
+        ScreenInvoker invoker = (ScreenInvoker) this;
         this.inputButtons.forEach(invoker::invokeRemoveWidget);
     }
 }
