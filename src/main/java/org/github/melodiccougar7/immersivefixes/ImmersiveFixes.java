@@ -20,8 +20,8 @@ public class ImmersiveFixes {
     // Directly reference a slf4j logger
     // private static final Logger LOGGER = LogUtils.getLogger();
 
-    public ImmersiveFixes() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+    public ImmersiveFixes(FMLJavaModLoadingContext context) {
+        IEventBus modEventBus = context.getModEventBus();
 
         modEventBus.addListener(this::commonSetup);
 
