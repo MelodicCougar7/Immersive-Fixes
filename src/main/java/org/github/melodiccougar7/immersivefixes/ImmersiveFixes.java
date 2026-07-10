@@ -47,9 +47,7 @@ public class ImmersiveFixes {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            event.enqueueWork(() -> {
-                MinecraftForge.EVENT_BUS.register(ClientEventHandler.class);
-            });
+            event.enqueueWork(() -> MinecraftForge.EVENT_BUS.register(ClientEventHandler.class));
         }
     }
 }
