@@ -9,7 +9,13 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 @Mixin(CokeOvenLogic.State.class)
 public interface CokeOvenStateAccessor {
     @Accessor("process")
+    int getProcess();
+
+    @Accessor("process")
     void setProcess(int value);
+
+    @Accessor("processMax")
+    int getProcessMax();
 
     @Accessor("processMax")
     void setProcessMax(int value);

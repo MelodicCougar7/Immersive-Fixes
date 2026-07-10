@@ -20,6 +20,7 @@ public abstract class CokeOvenLogicFix {
 
         if (input.isEmpty()) {
             CokeOvenStateAccessor accessor = (CokeOvenStateAccessor) state;
+            if (accessor.getProcess() == 0 && accessor.getProcessMax() == 0) { return; }
             accessor.setProcess(0);
             accessor.setProcessMax(0);
             context.markMasterDirty();
