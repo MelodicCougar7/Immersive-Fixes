@@ -1,4 +1,4 @@
-package org.github.melodiccougar7.immersivefixes.mixin;
+package org.github.melodiccougar7.immersivefixes.mixin.common.helper;
 
 import blusunrize.immersiveengineering.api.energy.GeneratorFuel;
 import blusunrize.immersiveengineering.api.utils.CapabilityReference;
@@ -9,13 +9,11 @@ import net.minecraftforge.energy.IEnergyStorage;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
-import javax.annotation.Nullable;
 import java.util.List;
 import java.util.function.BiFunction;
-import java.util.function.Supplier;
 
-@Mixin(DieselGeneratorLogic.State.class)
-public interface DieselGenAccessor {
+@Mixin(value = DieselGeneratorLogic.State.class, remap = false)
+public interface DieselGeneratorLogicAccessor {
     @Accessor("energyOutputs")
     List<CapabilityReference<IEnergyStorage>> getEnergyOutputs();
 

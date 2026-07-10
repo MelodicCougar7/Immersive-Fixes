@@ -1,4 +1,4 @@
-package org.github.melodiccougar7.immersivefixes.mixin;
+package org.github.melodiccougar7.immersivefixes.mixin.client;
 
 import blusunrize.immersiveengineering.client.ClientEventHandler;
 import blusunrize.immersiveengineering.client.ClientUtils;
@@ -11,6 +11,7 @@ import net.minecraft.client.resources.sounds.TickableSoundInstance;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import org.github.melodiccougar7.immersivefixes.lib.IFLib;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
@@ -30,6 +31,7 @@ public class ClientEventHandlerMixin {
     @SubscribeEvent
     @Overwrite(remap = false)
     public void onPlaySound(PlaySoundEvent event) {
+        IFLib.logMixinActive("ClientEventHandlerMixin");
         if (event.getSound() == null) {
             return;
         } else {

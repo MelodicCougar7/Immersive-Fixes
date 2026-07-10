@@ -15,7 +15,7 @@ public class ImmersiveFixesMixinPlugin implements IMixinConfigPlugin {
     private static final Supplier<Boolean> TRUE = () -> true;
 
     private static final Map<String, Supplier<Boolean>> CONDITIONS = ImmutableMap.of(
-            "melodiccougar7.immersivefixes.mixin.ArcFurnaceSecondariesChanceMixin", () -> LoadingModList.get().getModFileById("compressedengineering") == null
+            "org.github.melodiccougar7.immersivefixes.mixin.common.ArcFurnaceRecipeMixin", () -> LoadingModList.get().getModFileById("compressedengineering") == null
     );
 
     @Override

@@ -1,10 +1,9 @@
-package org.github.melodiccougar7.immersivefixes.mixin.gui;
+package org.github.melodiccougar7.immersivefixes.mixin.client.gui.helper;
 
-import blusunrize.immersiveengineering.client.gui.CircuitTableScreen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
-@Mixin(value = net.minecraft.client.gui.screens.Screen.class, remap = true)
+@Mixin(value = net.minecraft.client.gui.screens.Screen.class)
 public interface ScreenInvoker {
 
     @Invoker("removeWidget")

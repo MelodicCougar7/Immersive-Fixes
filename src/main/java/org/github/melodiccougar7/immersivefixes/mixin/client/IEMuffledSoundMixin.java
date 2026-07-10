@@ -1,4 +1,4 @@
-package org.github.melodiccougar7.immersivefixes.mixin;
+package org.github.melodiccougar7.immersivefixes.mixin.client;
 
 import blusunrize.immersiveengineering.client.ClientUtils;
 import blusunrize.immersiveengineering.common.config.IEClientConfig;
@@ -7,6 +7,7 @@ import blusunrize.immersiveengineering.common.util.ItemNBTHelper;
 import blusunrize.immersiveengineering.common.util.sound.IEMuffledSound;
 import net.minecraft.client.resources.sounds.SoundInstance;
 import net.minecraft.world.item.ItemStack;
+import org.github.melodiccougar7.immersivefixes.lib.IFLib;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
@@ -27,6 +28,7 @@ public class IEMuffledSoundMixin {
     @SuppressWarnings("resource")
     @Overwrite
     public float getVolume() {
+        IFLib.logMixinActive("IEMuffledSoundMixin");
         float baseVolume = this.originalSound.getVolume();
         if (ClientUtils.mc().player == null) {
             return baseVolume;

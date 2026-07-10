@@ -1,4 +1,4 @@
-package org.github.melodiccougar7.immersivefixes.mixin;
+package org.github.melodiccougar7.immersivefixes.mixin.common;
 
 import blusunrize.immersiveengineering.api.energy.GeneratorFuel;
 import blusunrize.immersiveengineering.api.multiblocks.blocks.component.IClientTickableComponent;
@@ -13,6 +13,8 @@ import blusunrize.immersiveengineering.common.util.EnergyHelper;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fluids.capability.IFluidHandler;
+import org.github.melodiccougar7.immersivefixes.lib.IFLib;
+import org.github.melodiccougar7.immersivefixes.mixin.common.helper.DieselGeneratorLogicAccessor;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
@@ -28,7 +30,7 @@ https://github.com/BluSunrize/ImmersiveEngineering/blob/1.21.1/src/main/java/blu
  */
 
 @Mixin(DieselGeneratorLogic.class)
-public abstract class DieselGenFixes implements IMultiblockLogic<State>, IServerTickableComponent<State>, IClientTickableComponent<State> {
+public abstract class DieselGeneratorLogicMixin implements IMultiblockLogic<State>, IServerTickableComponent<State>, IClientTickableComponent<State> {
     /**
      * @author MelodicCougar7
      * @reason Simple solution to complex list of problems
@@ -36,8 +38,9 @@ public abstract class DieselGenFixes implements IMultiblockLogic<State>, IServer
     @Overwrite(remap = false)
     public void tickServer(IMultiblockContext<State> context)
     {
+        IFLib.logMixinActive("DieselGeneratorLogicMixin");
         final State state = context.getState();
-        DieselGenAccessor accessor = (DieselGenAccessor) (Object) state;
+        DieselGeneratorLogicAccessor accessor = (DieselGeneratorLogicAccessor) state;
         boolean active = context.getState().isActive();
         if(state.rsState.isEnabled(context)&&!state.tank.getFluid().isEmpty())
         {

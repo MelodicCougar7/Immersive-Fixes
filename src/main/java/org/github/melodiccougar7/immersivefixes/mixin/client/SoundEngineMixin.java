@@ -1,4 +1,4 @@
-package org.github.melodiccougar7.immersivefixes.mixin;
+package org.github.melodiccougar7.immersivefixes.mixin.client;
 
 import blusunrize.immersiveengineering.client.ClientUtils;
 import blusunrize.immersiveengineering.common.config.IEClientConfig;
@@ -8,6 +8,7 @@ import blusunrize.immersiveengineering.common.util.sound.IEMuffledSound;
 import blusunrize.immersiveengineering.common.util.sound.IEMuffledTickableSound;
 import net.minecraft.client.resources.sounds.SoundInstance;
 import net.minecraft.world.item.ItemStack;
+import org.github.melodiccougar7.immersivefixes.lib.IFLib;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -25,6 +26,7 @@ public class SoundEngineMixin {
     @SuppressWarnings("resource")
     @Inject(method = "calculateVolume(Lnet/minecraft/client/resources/sounds/SoundInstance;)F", at = @At("RETURN"), cancellable = true)
     private void onCalculateVolume(SoundInstance pSound, CallbackInfoReturnable<Float> cir) {
+        IFLib.logMixinActive("SoundEngineMixin");
         float baseVol = cir.getReturnValue();
         if (ClientUtils.mc().player == null) {
             return;
