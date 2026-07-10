@@ -1,4 +1,4 @@
-package org.github.melodiccougar7.immersivefixes.mixin;
+package org.github.melodiccougar7.immersivefixes.mixin.client;
 
 import blusunrize.immersiveengineering.client.ClientEventHandler;
 import blusunrize.immersiveengineering.client.ClientUtils;

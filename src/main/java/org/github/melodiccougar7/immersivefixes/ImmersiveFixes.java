@@ -1,5 +1,6 @@
 package org.github.melodiccougar7.immersivefixes;
 
+import org.github.melodiccougar7.immersivefixes.client.ClientEventHandler;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;

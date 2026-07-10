@@ -1,4 +1,4 @@
-package org.github.melodiccougar7.immersivefixes.mixin;
+package org.github.melodiccougar7.immersivefixes.mixin.common;
 
 import blusunrize.immersiveengineering.common.register.IEBlocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;

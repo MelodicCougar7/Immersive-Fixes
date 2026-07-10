@@ -1,4 +1,4 @@
-package org.github.melodiccougar7.immersivefixes.mixin;
+package org.github.melodiccougar7.immersivefixes.mixin.common;
 
 import blusunrize.immersiveengineering.api.crafting.ArcFurnaceRecipe;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;

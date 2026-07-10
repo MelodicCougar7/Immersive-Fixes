@@ -1,4 +1,4 @@
-package org.github.melodiccougar7.immersivefixes.mixin.gui;
+package org.github.melodiccougar7.immersivefixes.mixin.client.gui;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;

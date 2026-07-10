@@ -1,4 +1,4 @@
-package org.github.melodiccougar7.immersivefixes;
+package org.github.melodiccougar7.immersivefixes.client;
 
 import blusunrize.immersiveengineering.client.ClientUtils;
 import net.minecraft.sounds.SoundSource;

@@ -1,4 +1,4 @@
-package org.github.melodiccougar7.immersivefixes.mixin.gui;
+package org.github.melodiccougar7.immersivefixes.mixin.client.gui;
 
 import blusunrize.immersiveengineering.client.gui.elements.GuiButtonLogicCircuitRegister;
 import blusunrize.immersiveengineering.client.gui.elements.GuiButtonState;
