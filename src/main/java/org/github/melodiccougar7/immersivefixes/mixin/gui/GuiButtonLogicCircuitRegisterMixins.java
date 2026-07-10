@@ -3,10 +3,7 @@ package org.github.melodiccougar7.immersivefixes.mixin.gui;
 import blusunrize.immersiveengineering.client.gui.elements.GuiButtonLogicCircuitRegister;
 import blusunrize.immersiveengineering.client.gui.elements.GuiButtonState;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.*;
-
-import java.util.List;
 
 // Mixin to resolve #5856: Buttons in the circuit table behaving incorrectly
 // Inspired by https://github.com/BluSunrize/ImmersiveEngineering/commit/8c72a302747debd42f80f6984de9db62a876589a

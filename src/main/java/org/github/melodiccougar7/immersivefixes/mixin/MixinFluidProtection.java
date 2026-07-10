@@ -2,9 +2,7 @@ package org.github.melodiccougar7.immersivefixes.mixin;
 
 import com.mojang.logging.LogUtils;
 
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
 import org.slf4j.Logger;
 import org.spongepowered.asm.mixin.*;
 import blusunrize.immersiveengineering.common.register.IEBlocks;
