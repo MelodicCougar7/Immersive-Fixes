@@ -13,6 +13,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
 
+// TODO This mixin heavily breaks the menu
+/* reminder: drop this bit into the mixin json once everything is fixed
+ "client.gui.CircuitTableSceenMixin",
+    "client.gui.GuiButtonLogicCircuitRegisterMixins",
+    "client.gui.helper.ScreenInvoker",
+ */
 @Mixin(value = CircuitTableScreen.class, remap = false)
 public abstract class CircuitTableSceenMixin {
 

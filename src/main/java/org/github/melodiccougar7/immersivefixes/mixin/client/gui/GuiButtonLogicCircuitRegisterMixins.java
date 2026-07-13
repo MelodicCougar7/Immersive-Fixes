@@ -14,6 +14,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 // makes the increment land exactly on the intended entry, for both the digit branch (number+16) and the
 // color-initial branch (options.get(next)).
 
+// TODO This mixin does nothing in spite of tgstyle's PR. Investigate
 @Mixin(GuiButtonLogicCircuitRegister.class)
 public abstract class GuiButtonLogicCircuitRegisterMixins {
     @ModifyArg(
@@ -25,7 +26,7 @@ public abstract class GuiButtonLogicCircuitRegisterMixins {
             )
     )
     private int immersivefixes$compensateOnPressIncrement(int original) {
-        IFLib.logMixinActive("GuiButtonLogicCircuitRegisterMixins");
+        //IFLib.logMixinActive("GuiButtonLogicCircuitRegisterMixins");
         GuiButtonState<?> self = (GuiButtonState<?>) (Object) this;
         return Math.floorMod(original - 1, self.states.length);
     }

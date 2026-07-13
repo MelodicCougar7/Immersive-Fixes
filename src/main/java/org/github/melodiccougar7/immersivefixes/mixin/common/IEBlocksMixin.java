@@ -27,8 +27,11 @@ public class IEBlocksMixin {
 
     @Inject(method = "<clinit>", at = @At("RETURN"))
     private static void injectAfterStaticInitialization(CallbackInfo ci) {
-        IFLib.IF_LOGGER.info("Mixin applied: IEBlocks <clinit> method called.");
-        IFLib.IF_LOGGER.info("Original METAL_PROPERTIES_NO_OVERLAY: {}", METAL_PROPERTIES_NO_OVERLAY.get());
+        //IFLib.IF_LOGGER.info("Mixin applied: IEBlocks <clinit> method called.");
+        //IFLib.IF_LOGGER.info("Original METAL_PROPERTIES_NO_OVERLAY: {}", METAL_PROPERTIES_NO_OVERLAY.get());
+        /* Directly referenced from IE's code under Blu's License of Common Sense.
+           See https://github.com/BluSunrize/ImmersiveEngineering/issues/5906 and the exact source of the code,
+        */ https://github.com/BluSunrize/ImmersiveEngineering/commit/b6fb636b616bf0c1018c5c2c0095c18bd190161d
         METAL_PROPERTIES_NO_OCCLUSION = () -> METAL_PROPERTIES_NO_OVERLAY.get()
                 .noOcclusion()
                 .forceSolidOn();
