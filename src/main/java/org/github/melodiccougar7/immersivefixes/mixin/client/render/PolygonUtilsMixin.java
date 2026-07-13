@@ -17,7 +17,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class PolygonUtilsMixin {
     @Unique private static final int IMMERSIVEFIXES$STRIDE = DefaultVertexFormat.BLOCK.getIntegerSize();
     @Unique private static final int IMMERSIVEFIXES$COLOR_OFFSET = immersiveFixes$getOffset(DefaultVertexFormat.ELEMENT_COLOR);
-    @Unique private static final int IMMERSIVEFIXES$UV2_OFFSET = immersiveFixes$getOffset(DefaultVertexFormat.ELEMENT_UV2);
     @Unique private static final int IMMERSIVEFIXES$NORMAL_OFFSET = immersiveFixes$getOffset(DefaultVertexFormat.ELEMENT_NORMAL);
 
     @Unique private static int immersiveFixes$getOffset(VertexFormatElement element) {
@@ -46,7 +45,6 @@ public class PolygonUtilsMixin {
             int g = Math.min((int) (((c >> 8) & 255) * shade), 255);
             int b = Math.min((int) (((c >> 16) & 255) * shade), 255);
             verts[base + IMMERSIVEFIXES$COLOR_OFFSET] = r | (g << 8) | (b << 16) | (c & 0xFF000000);
-            verts[base + IMMERSIVEFIXES$UV2_OFFSET] = 0xF00000;
         }
         cir.setReturnValue(new BakedQuad(verts, in.getTintIndex(), in.getDirection(), in.getSprite(), false));
     }
