@@ -148,6 +148,15 @@ tasks.named('jar', Jar).configure {
     finalizedBy 'reobfJar'
 }
 
+tasks.register('devJar', Jar) {
+    dependsOn classes
+    archiveClassifier.set('dev')
+    from sourceSets.main.output
+    manifest { attributes 'MixinConfigs': "${mod_id}.mixins.json" }
+}
+
+build.dependsOn devJar
+
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
     options.compilerArgs << "-AreobfMixinRefmap=immersivefixes.refmap.json"
