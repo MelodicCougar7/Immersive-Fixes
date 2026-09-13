@@ -1,7 +1,5 @@
 package org.github.melodiccougar7.immersivefixes.mixin.common;
 
-import org.github.melodiccougar7.immersivefixes.lib.IFLib;
-
 import blusunrize.immersiveengineering.common.blocks.multiblocks.logic.sawmill.SawmillLogic;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.logic.sawmill.SawmillLogic.State;
 import net.minecraft.world.item.ItemStack;
@@ -15,8 +13,5 @@ import java.util.function.Consumer;
 @Mixin(value = SawmillLogic.class, remap = false)
 public abstract class SawmillLogicMixin {
     @Inject(method = "dropExtraItems(Lblusunrize/immersiveengineering/common/blocks/multiblocks/logic/sawmill/SawmillLogic$State;Ljava/util/function/Consumer;)V", at = @At("TAIL"))
-    private void immersiveFixes$clearDroppedSawblade(State state, Consumer<ItemStack> drop, CallbackInfo ci) {
-        IFLib.logMixinActive("SawmillLogicMixin");
-        state.sawblade = ItemStack.EMPTY;
-    }
+    private void immersiveFixes$clearDroppedSawblade(State state, Consumer<ItemStack> drop, CallbackInfo ci) { state.sawblade = ItemStack.EMPTY; }
 }

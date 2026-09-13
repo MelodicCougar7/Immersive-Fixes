@@ -10,7 +10,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.model.data.ModelData;
-import org.github.melodiccougar7.immersivefixes.lib.IFLib;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -29,10 +28,7 @@ public class BakedDynamicSplitModelMixin {
     @Shadow @Final private static Set<BakedDynamicSplitModel<?, ?>> WEAK_INSTANCES;
 
     @Inject(method = "<init>", at = @At("RETURN"))
-    private void immersiveFixes$registerForReload(CallbackInfo ci) {
-        IFLib.logMixinActive("BakedDynamicSplitModelMixin");
-        WEAK_INSTANCES.add((BakedDynamicSplitModel<?, ?>) (Object) this);
-    }
+    private void immersiveFixes$registerForReload(CallbackInfo ci) { WEAK_INSTANCES.add((BakedDynamicSplitModel<?, ?>) (Object) this); }
 
     @Redirect(method = "<init>", at = @At(value = "INVOKE", target = "Lcom/google/common/cache/CacheBuilder;maximumSize(J)Lcom/google/common/cache/CacheBuilder;"))
     private CacheBuilder<Object, Object> immersiveFixes$cacheSize(CacheBuilder<Object, Object> builder, long maximumSize) { return builder.maximumSize(64); }
@@ -42,7 +38,6 @@ public class BakedDynamicSplitModelMixin {
 
     @Inject(method = "getQuads(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/Direction;Lnet/minecraft/util/RandomSource;Lnet/minecraftforge/client/model/data/ModelData;Lnet/minecraft/client/renderer/RenderType;)Ljava/util/List;", at = @At("HEAD"), cancellable = true)
     private void immersiveFixes$cullSplitSides(BlockState state, Direction side, RandomSource rand, ModelData data, RenderType renderType, CallbackInfoReturnable<List<BakedQuad>> cir) {
-        IFLib.logMixinActive("BakedDynamicSplitModelMixin");
         if (side != null && data.get(IEProperties.Model.SUBMODEL_OFFSET) != null) { cir.setReturnValue(ImmutableList.of()); }
     }
 }

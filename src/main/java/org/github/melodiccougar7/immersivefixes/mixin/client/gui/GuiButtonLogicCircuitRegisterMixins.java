@@ -1,7 +1,5 @@
 package org.github.melodiccougar7.immersivefixes.mixin.client.gui;
 
-import org.github.melodiccougar7.immersivefixes.lib.IFLib;
-
 import blusunrize.immersiveengineering.client.gui.elements.GuiButtonLogicCircuitRegister;
 import blusunrize.immersiveengineering.client.gui.elements.GuiButtonState;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,7 +16,6 @@ public abstract class GuiButtonLogicCircuitRegisterMixins {
     private Number immersivefixes$compensateColorPress(Number original) { return immersivefixes$beforePress(original.intValue()); }
 
     @Unique private int immersivefixes$beforePress(int target) {
-        IFLib.logMixinActive("GuiButtonLogicCircuitRegisterMixins");
         GuiButtonState<?> self = (GuiButtonState<?>) (Object) this;
         return Math.floorMod(target - 1, self.states.length);
     }

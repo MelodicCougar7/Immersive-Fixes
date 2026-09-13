@@ -1,7 +1,5 @@
 package org.github.melodiccougar7.immersivefixes.mixin.common;
 
-import org.github.melodiccougar7.immersivefixes.lib.IFLib;
-
 import blusunrize.immersiveengineering.api.multiblocks.blocks.util.MBInventoryUtils;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
@@ -17,7 +15,6 @@ import java.util.function.Consumer;
 public abstract class MBInventoryUtilsMixin {
     @Inject(method = "dropItems(Lnet/minecraftforge/items/IItemHandler;Ljava/util/function/Consumer;)V", at = @At("TAIL"))
     private static void immersiveFixes$clearDroppedItems(IItemHandler inv, Consumer<ItemStack> drop, CallbackInfo ci) {
-        IFLib.logMixinActive("MBInventoryUtilsMixin");
         if (inv instanceof IItemHandlerModifiable modifiable) {
             for (int slot = 0; slot < modifiable.getSlots(); slot++) {
                 if (!modifiable.getStackInSlot(slot).isEmpty()) { modifiable.setStackInSlot(slot, ItemStack.EMPTY); }

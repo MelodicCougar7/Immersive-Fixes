@@ -3,7 +3,6 @@ package org.github.melodiccougar7.immersivefixes.mixin.common;
 import blusunrize.immersiveengineering.api.crafting.ArcFurnaceRecipe;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraftforge.fml.loading.LoadingModList;
-import org.github.melodiccougar7.immersivefixes.lib.IFLib;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
@@ -21,7 +20,6 @@ public abstract class ArcFurnaceRecipeMixin {
             )
     )
     private float immersivefixes$invertSecondaryChance(float originalChance) {
-        IFLib.logMixinActive("ArcFurnaceRecipeMixin");
         if (LoadingModList.get().getModFileById("compressedengineering") == null)
             return 1.0F - originalChance;
 

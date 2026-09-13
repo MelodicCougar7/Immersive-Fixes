@@ -1,7 +1,5 @@
 package org.github.melodiccougar7.immersivefixes.mixin.common;
 
-import org.github.melodiccougar7.immersivefixes.lib.IFLib;
-
 import blusunrize.immersiveengineering.common.items.IEBaseItem;
 import blusunrize.immersiveengineering.common.items.InternalStorageItem;
 import net.minecraft.core.NonNullList;
@@ -35,7 +33,6 @@ public abstract class InternalStorageItemMixin extends IEBaseItem {
             return any ? ContainerHelper.saveAllItems(new CompoundTag(), items) : null;
         }).orElse(null);
         if (contents == null) { return shared; }
-        IFLib.logMixinActive("InternalStorageItemMixin");
         CompoundTag result = shared == null ? new CompoundTag() : shared.copy();
         result.put(IMMERSIVEFIXES$CONTENTS, contents);
         return result;

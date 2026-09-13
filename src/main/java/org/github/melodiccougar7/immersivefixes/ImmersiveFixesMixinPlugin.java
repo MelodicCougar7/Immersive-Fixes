@@ -3,6 +3,8 @@ package org.github.melodiccougar7.immersivefixes;
 import com.google.common.collect.ImmutableMap;
 import net.minecraftforge.fml.loading.LoadingModList;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 
 import java.util.List;
@@ -12,14 +14,16 @@ import java.util.function.Supplier;
 
 public class ImmersiveFixesMixinPlugin implements IMixinConfigPlugin {
     // Code taken from https://github.com/Juuxel/Adorn/blob/bd70a2955640897bc68ff1f4f201fe5e6c10bc32/fabric/src/main/java/juuxel/adorn/AdornMixinPlugin.java under the MIT License
+    private static final Logger LOGGER = LoggerFactory.getLogger("immersivefixes");
     private static final Supplier<Boolean> TRUE = () -> true;
+    private String mixinPrefix = "";
 
     private static final Map<String, Supplier<Boolean>> CONDITIONS = ImmutableMap.of(
             "org.github.melodiccougar7.immersivefixes.mixin.common.ArcFurnaceRecipeMixin", () -> LoadingModList.get().getModFileById("compressedengineering") == null
     );
 
     @Override
-    public void onLoad(String mixinPackage) {}
+    public void onLoad(String mixinPackage) { this.mixinPrefix = mixinPackage + "."; }
 
     @Override
     public String getRefMapperConfig() {
@@ -46,5 +50,5 @@ public class ImmersiveFixesMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public void postApply(String targetClassName, org.objectweb.asm.tree.ClassNode targetClass,
-                          String mixinClassName, IMixinInfo mixinInfo) {}
+                          String mixinClassName, IMixinInfo mixinInfo) { LOGGER.info("Applied {} -> {}", mixinClassName.startsWith(mixinPrefix) ? mixinClassName.substring(mixinPrefix.length()) : mixinClassName, targetClassName); }
 }

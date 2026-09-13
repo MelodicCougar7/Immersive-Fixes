@@ -4,7 +4,6 @@ import blusunrize.immersiveengineering.api.multiblocks.blocks.env.IMultiblockCon
 import blusunrize.immersiveengineering.common.blocks.multiblocks.logic.CokeOvenLogic;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.logic.CokeOvenLogic.State;
 import net.minecraft.world.item.ItemStack;
-import org.github.melodiccougar7.immersivefixes.lib.IFLib;
 import org.github.melodiccougar7.immersivefixes.mixin.common.helper.CokeOvenLogicAccessor;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -17,7 +16,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class CokeOvenLogicMixin {
     @Inject(method = "tickServer", at = @At("HEAD"))
     private void immersiveFixes$resetProcessIfEmpty(IMultiblockContext<State> context, CallbackInfo ci) {
-        IFLib.logMixinActive("CokeOvenLogicMixin");
         State state = context.getState();
         ItemStack input = state.getInventory().getStackInSlot(CokeOvenLogic.INPUT_SLOT);
 

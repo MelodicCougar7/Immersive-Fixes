@@ -16,10 +16,7 @@ import org.spongepowered.asm.mixin.Mixins;
 
 @Mod(ImmersiveFixes.MODID)
 public class ImmersiveFixes {
-    // Define mod id in a common place for everything to reference
     public static final String MODID = "immersivefixes";
-    // Directly reference a slf4j logger
-    // private static final Logger LOGGER = LogUtils.getLogger();
 
     public ImmersiveFixes(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
@@ -27,7 +24,6 @@ public class ImmersiveFixes {
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
-        // Register the mixin manually
         MixinBootstrap.init();
         Mixins.addConfiguration("immersivefixes.mixins.json");
 
@@ -40,7 +36,6 @@ public class ImmersiveFixes {
 
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-        // Do something when the server starts
     }
 
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
