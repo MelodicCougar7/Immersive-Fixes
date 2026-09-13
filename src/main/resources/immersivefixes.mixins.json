@@ -32,6 +32,7 @@
     "client.gui.RedstoneProbeScreenMixin",
     "client.IEMuffledSoundMixin",
     "client.SoundEngineMixin",
+    "client.SoundEngineMuteMixin",
     "client.render.AbstractSplitModelMixin",
     "client.render.BakedBasicSplitModelMixin",
     "client.render.BakedDynamicSplitModelMixin",
