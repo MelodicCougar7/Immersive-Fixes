@@ -8,6 +8,8 @@ plugins {
 group = mod_group_id
 version = mod_version
 
+def releaseVersion = objects.property(String).convention(mod_version)
+
 base {
     archivesName = mod_id
 }
@@ -112,17 +114,39 @@ dependencies {
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
+tasks.register('bumpVersion') {
+    def inputHandler = project.services.get(org.gradle.api.internal.tasks.userinput.UserInputHandler)
+    def propertiesFile = file('gradle.properties')
+    def currentVersion = mod_version
+    doLast {
+        def release = inputHandler.askUser { it.choice("Release type for ${currentVersion}", ['patch', 'fix']).whenNotConnected(null).ask() }.getOrNull()
+        if (release == null) { throw new GradleException('Choosing patch or fix needs an interactive console; run the build from a terminal') }
+        def (major, minor, patch) = currentVersion.tokenize('.')*.toInteger()
+        def next = release == 'fix' ? "${major}.${minor + 1}.0" : "${major}.${minor}.${patch + 1}"
+        propertiesFile.text = propertiesFile.text.replaceFirst(/(?m)^mod_version=.*$/, "mod_version=${next}")
+        releaseVersion.set(next)
+        logger.lifecycle("Version ${currentVersion} -> ${next} (${release})")
+    }
+}
+
+tasks.withType(Jar).configureEach {
+    dependsOn 'bumpVersion'
+    archiveVersion.set(releaseVersion)
+}
+
 tasks.named('processResources', ProcessResources).configure {
+    mustRunAfter 'bumpVersion'
     var replaceProperties = [minecraft_version   : minecraft_version, minecraft_version_range: minecraft_version_range,
                              forge_version       : forge_version, forge_version_range: forge_version_range,
                              loader_version_range: loader_version_range,
-                             mod_id              : mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+                             mod_id              : mod_id, mod_name: mod_name, mod_license: mod_license,
                              mod_authors         : mod_authors, mod_description: mod_description,]
 
     inputs.properties replaceProperties
+    inputs.property 'mod_version', releaseVersion
 
     filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
-        expand replaceProperties + [project: project]
+        expand replaceProperties + [mod_version: releaseVersion.get(), project: project]
     }
 }
 
