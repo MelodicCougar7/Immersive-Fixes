@@ -36,50 +36,37 @@ public abstract class DieselGeneratorLogicMixin implements IMultiblockLogic<Stat
      * @reason Simple solution to complex list of problems
      */
     @Overwrite(remap = false)
-    public void tickServer(IMultiblockContext<State> context)
-    {
+    public void tickServer(IMultiblockContext<State> context) {
         IFLib.logMixinActive("DieselGeneratorLogicMixin");
         final State state = context.getState();
         DieselGeneratorLogicAccessor accessor = (DieselGeneratorLogicAccessor) state;
-        boolean active = context.getState().isActive();
-        if(state.rsState.isEnabled(context)&&!state.tank.getFluid().isEmpty())
-        {
+        boolean active = false;
+        if (state.rsState.isEnabled(context) && !state.tank.getFluid().isEmpty()) {
             int output = IEServerConfig.MACHINES.dieselGen_output.get();
             List<IEnergyStorage> presentOutputs = accessor.getEnergyOutputs().stream()
-                    .map(CapabilityReference::getNullable) // keep an eye on these three, I seem to recall them causing problems in the past that have since resolved themselves
+                    .map(CapabilityReference::getNullable)
                     .filter(Objects::nonNull)
                     .collect(Collectors.toList());
-            GeneratorFuel recipe = accessor.getRecipeGetter().apply(
-                    context.getLevel().getRawLevel(), state.tank.getFluid().getFluid()
-            );
-            if(recipe!=null&&
-                    !presentOutputs.isEmpty()&&
-                    EnergyHelper.distributeFlux(presentOutputs, output, true) < output)
-            {
-                accessor.setConsumeTick(accessor.getConsumeTick() - 1);
-                if(accessor.getConsumeTick() <= 0) //Consume 10*tick-amount every 10ticks to allow for 1/10th mB amounts
-                {
-                    int toConsume = (10*FluidType.BUCKET_VOLUME)/recipe.getBurnTime();
-                    float fluidConsumed;
-                    if((fluidConsumed = state.tank.drain(toConsume, IFluidHandler.FluidAction.EXECUTE).getAmount()) > 0)
-                    {
-                        if(!active)
-                            active = true;
-                        accessor.setConsumeTick((int)(10*(fluidConsumed/toConsume)));
+            GeneratorFuel recipe = accessor.getRecipeGetter().apply(context.getLevel().getRawLevel(), state.tank.getFluid().getFluid());
+            if (recipe != null && !presentOutputs.isEmpty() && EnergyHelper.distributeFlux(presentOutputs, output, true) < output) {
+                int consumeTick = accessor.getConsumeTick() - 1;
+                if (consumeTick <= 0) {
+                    int burnTime = recipe.getBurnTime();
+                    int toConsume = Math.max(1, (10 * FluidType.BUCKET_VOLUME) / burnTime);
+                    if (state.tank.getFluidAmount() >= toConsume) {
+                        state.tank.drain(toConsume, IFluidHandler.FluidAction.EXECUTE);
+                        consumeTick = Math.max(10, burnTime / FluidType.BUCKET_VOLUME);
                     }
-                    else if(active)
-                        active = false;
+                    else { consumeTick = 0; }
                 }
-                EnergyHelper.distributeFlux(presentOutputs, output, false);
+                accessor.setConsumeTick(consumeTick);
+                if (consumeTick > 0) {
+                    active = true;
+                    EnergyHelper.distributeFlux(presentOutputs, output, false);
+                }
             }
-            else if(active)
-                active = false;
         }
-        else if(active)
-            active = false;
-
-        if(active!=accessor.getActive())
-        {
+        if (active != accessor.getActive()) {
             accessor.setActive(active);
             context.markMasterDirty();
             context.requestMasterBESync();
