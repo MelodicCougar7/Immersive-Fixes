@@ -8,6 +8,7 @@
   "mixins": [
     "client.render.PolygonSplitMixin",
     "common.ArcFurnaceRecipeMixin",
+    "common.AssemblerLogicMixin",
     "common.BottlingMachineLogicMixin",
     "common.CokeOvenLogicMixin",
     "common.helper.CokeOvenLogicAccessor",
