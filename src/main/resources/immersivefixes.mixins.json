@@ -8,12 +8,17 @@
   "mixins": [
     "client.render.PolygonSplitMixin",
     "common.ArcFurnaceRecipeMixin",
+    "common.BottlingMachineLogicMixin",
     "common.CokeOvenLogicMixin",
     "common.helper.CokeOvenLogicAccessor",
     "common.helper.DieselGeneratorLogicAccessor",
+    "common.helper.MultiblockProcessorAccessor",
     "common.DieselGeneratorLogicMixin",
     "common.IEBlocksMixin",
-    "common.IEProjectileEntityMixin"
+    "common.IEProjectileEntityMixin",
+    "common.MBInventoryUtilsMixin",
+    "common.MetalPressLogicMixin",
+    "common.SawmillLogicMixin"
   ],
   "client": [
     "client.ClientEventHandlerMixin",
