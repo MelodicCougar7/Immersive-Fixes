@@ -12,7 +12,8 @@
     "common.helper.CokeOvenLogicAccessor",
     "common.helper.DieselGeneratorLogicAccessor",
     "common.DieselGeneratorLogicMixin",
-    "common.IEBlocksMixin"
+    "common.IEBlocksMixin",
+    "common.IEProjectileEntityMixin"
   ],
   "client": [
     "client.ClientEventHandlerMixin",
