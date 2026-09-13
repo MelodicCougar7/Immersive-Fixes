@@ -17,6 +17,9 @@
   ],
   "client": [
     "client.ClientEventHandlerMixin",
+    "client.gui.ArcFurnaceScreenMixin",
+    "client.gui.RedstoneConnectorScreenMixin",
+    "client.gui.RedstoneProbeScreenMixin",
     "client.IEMuffledSoundMixin",
     "client.SoundEngineMixin",
     "client.render.AbstractSplitModelMixin",
