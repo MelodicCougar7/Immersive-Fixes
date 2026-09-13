@@ -17,6 +17,7 @@
     "common.DieselGeneratorLogicMixin",
     "common.IEBlocksMixin",
     "common.IEProjectileEntityMixin",
+    "common.InternalStorageItemMixin",
     "common.MBInventoryUtilsMixin",
     "common.MetalPressLogicMixin",
     "common.ModWorkbenchContainerMixin",
@@ -36,7 +37,8 @@
     "client.render.AbstractSplitModelMixin",
     "client.render.BakedBasicSplitModelMixin",
     "client.render.BakedDynamicSplitModelMixin",
-    "client.render.PolygonUtilsMixin"
+    "client.render.PolygonUtilsMixin",
+    "client.ServerboundSetCreativeModeSlotPacketMixin"
   ],
   "injectors": {
     "defaultRequire": 1
