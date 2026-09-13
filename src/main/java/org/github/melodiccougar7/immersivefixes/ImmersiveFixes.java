@@ -1,6 +1,6 @@
 package org.github.melodiccougar7.immersivefixes;
 
-import org.github.melodiccougar7.immersivefixes.client.ClientEventHandler;
+import org.github.melodiccougar7.immersivefixes.client.EarmuffHandler;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -48,7 +48,7 @@ public class ImmersiveFixes {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            event.enqueueWork(() -> MinecraftForge.EVENT_BUS.register(ClientEventHandler.class));
+            event.enqueueWork(() -> MinecraftForge.EVENT_BUS.register(EarmuffHandler.class));
         }
     }
 }
