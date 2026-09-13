@@ -18,6 +18,9 @@
   "client": [
     "client.ClientEventHandlerMixin",
     "client.gui.ArcFurnaceScreenMixin",
+    "client.gui.CircuitTableSceenMixin",
+    "client.gui.GuiButtonLogicCircuitRegisterMixins",
+    "client.gui.helper.ScreenInvoker",
     "client.gui.RedstoneConnectorScreenMixin",
     "client.gui.RedstoneProbeScreenMixin",
     "client.IEMuffledSoundMixin",
