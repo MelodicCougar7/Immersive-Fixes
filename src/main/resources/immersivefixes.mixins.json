@@ -30,7 +30,7 @@
     "client.gui.helper.ScreenInvoker",
     "client.gui.RedstoneConnectorScreenMixin",
     "client.gui.RedstoneProbeScreenMixin",
-    "client.IEMuffledSoundMixin",
+    "client.IEBlockEntitySoundMixin",
     "client.SoundEngineMixin",
     "client.SoundEngineMuteMixin",
     "client.render.AbstractSplitModelMixin",
