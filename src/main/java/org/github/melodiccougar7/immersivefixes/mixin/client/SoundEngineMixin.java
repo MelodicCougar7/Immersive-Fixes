@@ -25,7 +25,7 @@ public class SoundEngineMixin {
 
     @SuppressWarnings("resource")
     @Inject(method = "calculateVolume(Lnet/minecraft/client/resources/sounds/SoundInstance;)F", at = @At("RETURN"), cancellable = true)
-    private void onCalculateVolume(SoundInstance pSound, CallbackInfoReturnable<Float> cir) {
+    private void onCalculateVolume(SoundInstance p_120328_, CallbackInfoReturnable<Float> cir) {
         IFLib.logMixinActive("SoundEngineMixin");
         float baseVol = cir.getReturnValue();
         if (ClientUtils.mc().player == null) {
@@ -35,16 +35,16 @@ public class SoundEngineMixin {
         if (earmuffs.isEmpty()) {
             return;
         }
-        if (pSound instanceof IEMuffledSound || pSound instanceof IEMuffledTickableSound) {
+        if (p_120328_ instanceof IEMuffledSound || p_120328_ instanceof IEMuffledTickableSound) {
             return;
         }
-        String catName = pSound.getSource().getName();
+        String catName = p_120328_.getSource().getName();
         if (ItemNBTHelper.getBoolean(earmuffs, "IE:Earmuffs:Cat_" + catName)) {
             return;
         }
         boolean blacklisted = false;
         for (String blacklist : IEClientConfig.earDefenders_SoundBlacklist.get()) {
-            if (blacklist != null && blacklist.equalsIgnoreCase(pSound.getLocation().toString())) {
+            if (blacklist != null && blacklist.equalsIgnoreCase(p_120328_.getLocation().toString())) {
                 blacklisted = true;
                 break;
             }
