@@ -19,6 +19,7 @@
     "common.IEProjectileEntityMixin",
     "common.MBInventoryUtilsMixin",
     "common.MetalPressLogicMixin",
+    "common.ModWorkbenchContainerMixin",
     "common.SawmillLogicMixin"
   ],
   "client": [
