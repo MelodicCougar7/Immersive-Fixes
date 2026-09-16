@@ -8,20 +8,37 @@
   "mixins": [
     "client.render.PolygonSplitMixin",
     "common.ArcFurnaceRecipeMixin",
+    "common.AssemblerLogicMixin",
+    "common.BottlingMachineLogicMixin",
     "common.CokeOvenLogicMixin",
     "common.helper.CokeOvenLogicAccessor",
     "common.helper.DieselGeneratorLogicAccessor",
+    "common.helper.MultiblockProcessorAccessor",
     "common.DieselGeneratorLogicMixin",
-    "common.IEBlocksMixin"
+    "common.IEBlocksMixin",
+    "common.IEProjectileEntityMixin",
+    "common.InternalStorageItemMixin",
+    "common.MBInventoryUtilsMixin",
+    "common.MetalPressLogicMixin",
+    "common.ModWorkbenchContainerMixin",
+    "common.SawmillLogicMixin"
   ],
   "client": [
     "client.ClientEventHandlerMixin",
-    "client.IEMuffledSoundMixin",
+    "client.gui.ArcFurnaceScreenMixin",
+    "client.gui.CircuitTableSceenMixin",
+    "client.gui.GuiButtonLogicCircuitRegisterMixins",
+    "client.gui.helper.ScreenInvoker",
+    "client.gui.RedstoneConnectorScreenMixin",
+    "client.gui.RedstoneProbeScreenMixin",
+    "client.IEBlockEntitySoundMixin",
     "client.SoundEngineMixin",
+    "client.SoundEngineMuteMixin",
     "client.render.AbstractSplitModelMixin",
     "client.render.BakedBasicSplitModelMixin",
     "client.render.BakedDynamicSplitModelMixin",
-    "client.render.PolygonUtilsMixin"
+    "client.render.PolygonUtilsMixin",
+    "client.ServerboundSetCreativeModeSlotPacketMixin"
   ],
   "injectors": {
     "defaultRequire": 1
