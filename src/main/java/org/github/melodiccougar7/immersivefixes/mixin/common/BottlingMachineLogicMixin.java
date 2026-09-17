@@ -1,6 +1,5 @@
 package org.github.melodiccougar7.immersivefixes.mixin.common;
 
-import org.github.melodiccougar7.immersivefixes.lib.IFLib;
 import org.github.melodiccougar7.immersivefixes.mixin.common.helper.MultiblockProcessorAccessor;
 
 import blusunrize.immersiveengineering.common.blocks.multiblocks.logic.bottling_machine.BottlingMachineLogic;
@@ -17,7 +16,6 @@ import java.util.function.Consumer;
 public abstract class BottlingMachineLogicMixin {
     @Inject(method = "dropExtraItems(Lblusunrize/immersiveengineering/common/blocks/multiblocks/logic/bottling_machine/BottlingMachineLogic$State;Ljava/util/function/Consumer;)V", at = @At("TAIL"))
     private void immersiveFixes$clearDroppedProcesses(State state, Consumer<ItemStack> drop, CallbackInfo ci) {
-        IFLib.logMixinActive("BottlingMachineLogicMixin");
         MultiblockProcessorAccessor processor = (MultiblockProcessorAccessor) state.processor;
         if (processor.getProcessQueue().isEmpty()) { return; }
         processor.getProcessQueue().clear();

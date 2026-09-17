@@ -1,7 +1,5 @@
 package org.github.melodiccougar7.immersivefixes.mixin.common;
 
-import org.github.melodiccougar7.immersivefixes.lib.IFLib;
-
 import blusunrize.immersiveengineering.api.tool.IConfigurableTool;
 import blusunrize.immersiveengineering.api.tool.IUpgradeableTool;
 import blusunrize.immersiveengineering.common.gui.IEContainerMenu;
@@ -27,7 +25,6 @@ public abstract class ModWorkbenchContainerMixin extends IEContainerMenu {
     @Nonnull
     @Overwrite
     public ItemStack quickMoveStack(Player player, int slot) {
-        IFLib.logMixinActive("ModWorkbenchContainerMixin");
         ItemStack resultStack = ItemStack.EMPTY;
         Slot slotObject = slots.get(slot);
         if (slotObject.hasItem()) {

@@ -62,6 +62,7 @@ legacyForge {
                     '--existing', file('src/main/resources/').toString()
         }
         configureEach {
+            jvmArgument '-Xmx4G'
             gameDirectory = project.file('run')
         }
     }

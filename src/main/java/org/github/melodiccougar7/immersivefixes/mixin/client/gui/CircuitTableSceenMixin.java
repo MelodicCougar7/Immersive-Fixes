@@ -1,6 +1,5 @@
 package org.github.melodiccougar7.immersivefixes.mixin.client.gui;
 
-import org.github.melodiccougar7.immersivefixes.lib.IFLib;
 import org.github.melodiccougar7.immersivefixes.mixin.client.gui.helper.ScreenInvoker;
 
 import blusunrize.immersiveengineering.client.gui.CircuitTableScreen;
@@ -20,7 +19,6 @@ public abstract class CircuitTableSceenMixin {
 
     @Inject(method = "updateButtons()V", at = @At(value = "INVOKE", target = "Ljava/util/List;clear()V"))
     private void immersivefixes$removeOldInputButtons(CallbackInfo ci) {
-        IFLib.logMixinActive("CircuitTableSceenMixin");
         ScreenInvoker invoker = (ScreenInvoker) this;
         this.inputButtons.forEach(invoker::invokeRemoveWidget);
     }

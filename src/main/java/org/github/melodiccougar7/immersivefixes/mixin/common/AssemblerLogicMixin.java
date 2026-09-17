@@ -1,7 +1,5 @@
 package org.github.melodiccougar7.immersivefixes.mixin.common;
 
-import org.github.melodiccougar7.immersivefixes.lib.IFLib;
-
 import blusunrize.immersiveengineering.api.multiblocks.blocks.env.IMultiblockContext;
 import blusunrize.immersiveengineering.common.blocks.metal.CrafterPatternInventory;
 import blusunrize.immersiveengineering.common.blocks.multiblocks.logic.AssemblerLogic;
@@ -32,7 +30,6 @@ public abstract class AssemblerLogicMixin {
     private int immersiveFixes$itemGridSlot(int queryIndex) { return immersiveFixes$gridSlot(queryIndex); }
 
     @Unique private int immersiveFixes$gridSlot(int queryIndex) {
-        IFLib.logMixinActive("AssemblerLogicMixin");
         CrafterPatternInventory pattern = this.immersiveFixes$consumingPattern;
         if (pattern == null) { return queryIndex; }
         int remaining = queryIndex;

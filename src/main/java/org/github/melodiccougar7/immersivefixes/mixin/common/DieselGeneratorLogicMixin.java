@@ -13,7 +13,6 @@ import blusunrize.immersiveengineering.common.util.EnergyHelper;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fluids.capability.IFluidHandler;
-import org.github.melodiccougar7.immersivefixes.lib.IFLib;
 import org.github.melodiccougar7.immersivefixes.mixin.common.helper.DieselGeneratorLogicAccessor;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
@@ -37,7 +36,6 @@ public abstract class DieselGeneratorLogicMixin implements IMultiblockLogic<Stat
      */
     @Overwrite(remap = false)
     public void tickServer(IMultiblockContext<State> context) {
-        IFLib.logMixinActive("DieselGeneratorLogicMixin");
         final State state = context.getState();
         DieselGeneratorLogicAccessor accessor = (DieselGeneratorLogicAccessor) state;
         boolean active = false;
