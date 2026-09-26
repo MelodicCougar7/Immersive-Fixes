@@ -131,7 +131,8 @@ tasks.register('bumpVersion') {
 }
 
 tasks.withType(Jar).configureEach {
-    dependsOn 'bumpVersion'
+    if (name == 'devJar') { mustRunAfter 'bumpVersion' }
+    else { dependsOn 'bumpVersion' }
     archiveVersion.set(releaseVersion)
 }
 
@@ -172,6 +173,17 @@ tasks.register('devJar', Jar) {
 }
 
 build.dependsOn devJar
+
+def devSyncScript = null
+for (def dir = rootDir; dir != null && devSyncScript == null; dir = dir.parentFile) {
+    def candidate = new File(dir, '#scripts/mods-devsync.gradle')
+    if (candidate.isFile()) { devSyncScript = candidate }
+}
+if (devSyncScript != null) {
+    ext.devSyncVersion = releaseVersion
+    apply from: devSyncScript
+    build.finalizedBy 'devSync'
+}
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
