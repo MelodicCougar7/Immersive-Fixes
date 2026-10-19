@@ -14,6 +14,7 @@ import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import org.github.melodiccougar7.immersivefixes.mixin.common.helper.DieselGeneratorLogicAccessor;
+import org.github.melodiccougar7.immersivefixes.util.ChunkDirty;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
@@ -57,6 +58,7 @@ public abstract class DieselGeneratorLogicMixin implements IMultiblockLogic<Stat
                     }
                     else { consumeTick = 0; }
                 }
+                if (consumeTick != accessor.getConsumeTick()) ChunkDirty.mark(context);
                 accessor.setConsumeTick(consumeTick);
                 if (consumeTick > 0) {
                     active = true;
