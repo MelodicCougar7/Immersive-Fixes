@@ -15,6 +15,7 @@
     "common.helper.DieselGeneratorLogicAccessor",
     "common.helper.MultiblockProcessorAccessor",
     "common.DieselGeneratorLogicMixin",
+    "common.FloodlightBlockEntityMixin",
     "common.FluidPipeBlockEntityMixin",
     "common.IEBlocksMixin",
     "common.IEProjectileEntityMixin",
