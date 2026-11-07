@@ -47,7 +47,7 @@ public final class EarmuffHandler {
 
     public static float apply(float volume, SoundInstance sound) {
         if (volume <= 0.0F || blacklist.contains(sound.getLocation())) { return volume; }
-        float multiplier = MULTIPLIERS.get(sound.getSource());
+        float multiplier = MULTIPLIERS.getOrDefault(sound.getSource(), 1.0F);
         if (multiplier >= 1.0F) { return volume; }
         return Math.max(volume * multiplier, MIN_VOLUME);
     }
